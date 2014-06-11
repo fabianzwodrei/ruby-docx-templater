@@ -38,8 +38,8 @@ module DocxTemplater
       # TODO: ideally we would not re-parse xml doc every time
       xml = Nokogiri::XML(document)
 
-      begin_row = "#BEGIN_ROW:#{key.to_s.upcase}#"
-      end_row = "#END_ROW:#{key.to_s.upcase}#"
+      begin_row = "#BEGIN_ROW:#{key.to_s}#"
+      end_row = "#END_ROW:#{key.to_s}#"
       begin_row_template = xml.xpath("//w:tr[contains(., '#{begin_row}')]", xml.root.namespaces).first
       end_row_template = xml.xpath("//w:tr[contains(., '#{end_row}')]", xml.root.namespaces).first
       DocxTemplater.log("begin_row_template: #{begin_row_template}")
