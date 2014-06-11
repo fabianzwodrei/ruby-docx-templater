@@ -15,9 +15,9 @@ module DocxTemplater
       data.each do |key, value|
         if value.class == Array
           document = enter_multiple_values(document, key)
-          document.gsub!("#SUM:#{key.to_s.upcase}#", value.count.to_s)
+          document.gsub!("#SUM:#{key.to_s}#", value.count.to_s)
         else
-          document.gsub!("$#{key.to_s.upcase}$", safe(value))
+          document.gsub!("$#{key.to_s}$", safe(value))
         end
       end
       document
